@@ -34,13 +34,8 @@ export default function App() {
           const data = await res.json();
           if (data.response === "False") throw new Error("City not found");
 
-          setWeather({
-            temp: data.main.temp,
-            humidity: data.main.humidity,
-            windSpeed: data.wind.speed,
-            cityName: data.name,
-            pressure: data.main.pressure,
-          });
+          setWeather(data);
+          console.log(data);
         } catch (err) {
           setIsError(err.message);
         } finally {

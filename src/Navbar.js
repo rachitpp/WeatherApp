@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Navbar({ input, setInput, onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -5,18 +7,23 @@ export default function Navbar({ input, setInput, onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-bar">
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter city name"
-        minLength={3}
-        className="search-input"
-      />
-      <button type="submit" className="search-btn">
-        Search
-      </button>
-    </form>
+    <div className="container">
+      <div className="search-section">
+        <form onSubmit={handleSubmit} className="search-bar">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Search"
+            minLength={3}
+            className="search-input"
+          />
+          <button type="submit" className="search-btn">
+            🔍
+          </button>
+        </form>
+      </div>
+      {/* Weather container and other content can go here */}
+    </div>
   );
 }
